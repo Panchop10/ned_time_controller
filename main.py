@@ -8,13 +8,11 @@ card_to_hex = 'xxd mycardUltra.mfd > mycardUltra.hex'
 os.system(card_to_hex)
 f=open("mycardUltra.hex","r")
 first=f.readline()
-Line=f.readline()
-id_num_hex=line.substring(9:17)
-print(id_num_hex)
+second=f.readline()
 
-
-
-
+id_num_hex=second[9:18]
+id_num_hex1=id_num_hex.replace(' ', '').rstrip('0')
+print(id_num_hex1)
 #id_num_hex1=id_num_hex.replace(' ', '').rstrip('0')
 
 #if (len(id_num_hex1))%2 == 1:
