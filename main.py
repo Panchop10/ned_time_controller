@@ -16,14 +16,13 @@ id_num_hex1=id_num_hex.replace(' ', '').rstrip('0')
 print(id_num_hex1)
 
 
+if (len(id_num_hex1))%2 == 1:
+   id_num_hex1=id_num_hex1 + "0"
 
-#if (len(id_num_hex1))%2 == 1:
-#   id_num=id_num_hex1 + "0"
-#os.system(id_num)
 
-#id_num = codecs.decode(id_num, 'hex').decode('ascii')
+id_num = codecs.decode(id_num_hex1, 'hex').decode('ascii')
 
-#print(id_num)
+print(id_num)
 
 # if text_hex== "":
 #     print("is empty")
