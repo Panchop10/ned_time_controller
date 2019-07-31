@@ -16,6 +16,7 @@ id_num_hex=second[9:17]
 id_num_hex1=id_num_hex.replace(' ', '').rstrip('0')
 print(id_num_hex1)
 
+
 #if (len(id_num_hex1))%2 == 1:
 #   id_num=id_num_hex1 + "0"
 #os.system(id_num)
@@ -33,5 +34,6 @@ print(id_num_hex1)
 
 # write_card = 'yes N | nfc-mfultralight w mycardUltra.mfd'
 # os.system(write_card)
+
 
 
