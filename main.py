@@ -11,9 +11,10 @@ f=open("mycardUltra.hex","r")
 first=f.readline()
 second=f.readline()
 
-id_num_hex=second[9:17]
+id_num_hex=second[9:18]
 id_num_hex1=id_num_hex.replace(' ', '').rstrip('0')
 print(id_num_hex1)
+
 
 
 #if (len(id_num_hex1))%2 == 1:
