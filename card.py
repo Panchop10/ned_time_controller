@@ -2,28 +2,34 @@
 
 import os
 import codecs
+import uuid
 
 class Card:
         def __init__(self):
             self.id = self.get_id_number()
 
-        def read_card_into_file(self, name):
-            print('read card into file')
+        def read_card_into_file(self):
+            """Save file.mfd with card information"""
+
+            #Create a unique file name
+            name = str(uuid.uuid4())
+
             #read card and save file in mdf
-            file_mdf = 'nfc-mfultralight r {}.mfd'.format(name)
+            file_mdf = 'nfc-mfultralight r .temp/{}.mfd'.format(name)
             os.system(file_mdf)
 
             #convert mdf file to hex
-            card_to_hex = 'xxd {}.mfd > {}.hex'.format(name, name)
+            card_to_hex = 'xxd .temp/{}.mfd > .temp/{}.hex'.format(name, name)
             os.system(card_to_hex)
 
             #return the name of the file in hex format
             return '{}.hex'.format(name)
 
         def get_id_number(self):
-            print('get id number')
+            """Getting id number in the first 4 bytes of the card"""
+
             #read the card and get the file name
-            file = self.read_card_into_file('myCardUltra')
+            file = self.read_card_into_file()
 
             #read file
             f=open(file,"r")
@@ -40,18 +46,20 @@ class Card:
 
             #decode hex into ascii
             id_num = codecs.decode(id_num_hex1, 'hex').decode('ascii')
+
+            #return id of the card
             return id_num
 
         def save_id_number(self, id_number):
             """Save id number in card, if there is any error it returns 0
             otherwise returns 1"""
-            print('save id number')
+
             #check id_number is between 0 and 9999
             if(id_number<0 or id_number>9999):
                 return 0
 
             #read the card and get the file name
-            file = self.read_card_into_file('myCardUltra')
+            file = self.read_card_into_file()
 
             #convert input to hex
             hex_num=hex(id_number).lstrip('0x').rstrip('L')
@@ -62,8 +70,12 @@ class Card:
 
             hex_num+=" "
 
+
+            #Create a unique file name for new file
+            name_new_file = str(uuid.uuid4())
+
             #create new hex file
-            n=open("NewMycardUltra.hex","w")
+            new_file=open(".temp/{}".format(name_new_file) ,"w")
 
             #counter for old hex file
             counter = 0
@@ -78,22 +90,22 @@ class Card:
                         line = line[9:14].replace(id_num_hex,hex_num,1)
 
                     #write the line into the new file
-                    n.writeline(line)
+                    new_file.writeline(line)
 
                     if 'str' in line:
                         break
 
             #close new hex file
-            n.close()
+            new_file.close()
 
-            self.write_card("NewMycardUltra")
+            #write the new file into the card
+            self.write_card(name_new_file)
 
             return 1
 
         def write_card(self, file_name):
-            print('write card')
             #convert hex file to mfd
-            hex_to_card = 'xxd -r {}.hex {}.mfd'.format(file_name, file_name)
+            hex_to_card = 'xxd -r .temp/{}.hex .temp/{}.mfd'.format(file_name, file_name)
             os.system(id_num_hex_to_card)
 
             #run command to write into the card
