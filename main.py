@@ -1,6 +1,9 @@
 import os
 import codecs
 
+
+## Read_Card
+
 #read card and save file in mdf
 read_card = 'nfc-mfultralight r mycardUltra.mfd'
 os.system(read_card)
@@ -24,13 +27,46 @@ if (len(id_num_hex1))%2 == 1:
 
 #decode hex into ascii
 id_num = codecs.decode(id_num_hex1, 'hex').decode('ascii')
-
 print(id_num)
 
-# if text_hex== "":
-#     print("is empty")
-# os.system(id_num)
+## Write_Card
+
+#ask user number between 0 and 9999
+hex_num =""
+number = input ("Enter number")
+while number<0 or number>9999:
+    number=input("Please enter the number again")
+#convert input to hex
+hex_num=hex(number).lstrip('0x').rstrip('L')
+
+#add 0 to complete 2 bytes
+while (len(hex_num))!=4:
+    hex_num+="0"
+
+hex_num+=" "
+
+#read file
+f=open("mycardUltra.hex","r")
+first=f.readline()
+second=f.readline()
+third=f.readline()
+fourth=f.readline()
+#substring the second line, change id number
+id_num_hex=second[9:14]
+new_id_num_hex =second.replace(id_num_hex,hex_num,1) #fix this
+print(new_id_num_hex)
+
+n=open("NewMycardUltra.hex","w")
+newfirst=n.writeline(first)
+newsecond=n.writeline(new_id_num_hex)
+newthird=n.writeline(third)
+newfourth=n.writeline(fourth)
 
 
-# write_card = 'yes N | nfc-mfultralight w mycardUltra.mfd'
-# os.system(write_card)
+#convert hex file to mfd
+id_num_hex_to_card = 'xxd -r mycardUltra.hex mycardUltra.mfd'
+os.system(id_num_hex_to_card)
+
+#run command to write into the card
+write_to_card = 'yes N | nfc-mfultralight w mycardUltra.mfd'
+os.system(run_to_card )
