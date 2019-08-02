@@ -65,7 +65,7 @@ class Card:
             hex_num=hex(id_number).lstrip('0x').rstrip('L')
 
             #add 0 to complete 2 bytes
-            while (len(hex_num))!=8:
+            while (len(hex_num))!=4:
                 hex_num+="0"
 
             hex_num+=" "
@@ -87,7 +87,7 @@ class Card:
 
                     #change the id_number when we are in second line
                     if(counter == 2):
-                        line = line.replace(line[9:19], hex_num, 1)
+                        line = line.replace(line[9:14], hex_num, 1)
 
                     #write the line into the new file
                     new_file.write(line)
