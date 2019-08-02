@@ -1,4 +1,4 @@
-from 'card.py' import Card
+from card import Card
 
 if __name__ == '__main__':
     card = new Card()
