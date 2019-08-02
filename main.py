@@ -1,6 +1,7 @@
 import os
 import codecs
 
+#Sena wrote this code with Zeynep
 
 ## Read_Card
 
