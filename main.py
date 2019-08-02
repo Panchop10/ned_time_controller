@@ -2,6 +2,7 @@ import os
 import codecs
 
 #This is write_card branch
+#This is the second comment of write_card
 
 #Sena wrote this code with Zeynep
 
