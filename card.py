@@ -87,7 +87,7 @@ class Card:
 
                     #change the id_number when we are in second line
                     if(counter == 2):
-                        line = line[9:14].replace(id_num_hex,hex_num,1)
+                        line = line.replace(line[9:14], hex_num, 1)
 
                     #write the line into the new file
                     new_file.write(line)
