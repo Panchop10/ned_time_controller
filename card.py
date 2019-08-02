@@ -90,6 +90,9 @@ class Card:
                     if(counter == 2):
                         line = line.replace(line[9:14], hex_num, 1)
 
+
+                    print(line)
+
                     #write the line into the new file
                     new_file.write(line)
 
