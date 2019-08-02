@@ -1,7 +1,6 @@
 """Class card with read and write methods"""
 
 import os
-import codecs
 import uuid
 
 class Card:
@@ -45,10 +44,7 @@ class Card:
                 id_num_hex1=id_num_hex1 + "0"
 
             #test printing hex
-            print(int(id_num_hex1, 16))
-
-            #decode hex into ascii
-            #$id_num = codecs.decode(id_num_hex1, 'hex').decode('ascii')
+            id_num = int(id_num_hex1, 16)
 
             #return id of the card
             return id_num
