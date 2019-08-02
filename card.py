@@ -88,9 +88,6 @@ class Card:
                     if(counter == 2):
                         line = line.replace(line[9:14], hex_num, 1)
 
-
-                    print(line)
-
                     #write the line into the new file
                     new_file.write(line)
 
@@ -111,5 +108,5 @@ class Card:
             os.system(hex_to_card)
 
             #run command to write into the card
-            #write_to_card = 'yes N | nfc-mfultralight w {}.mfd'.format(file_name)
-            #os.system(write_to_card)
+            write_to_card = 'yes N | nfc-mfultralight w {}.mfd'.format(file_name)
+            os.system(write_to_card)

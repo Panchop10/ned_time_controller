@@ -7,8 +7,7 @@ if __name__ == '__main__':
 
     print(card.id)
 
-    #id = random.randint(1,9999)
-    id = 6879
+    id = random.randint(1,9999)
     print(id)
 
     card.save_id_number(id)
