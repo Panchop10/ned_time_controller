@@ -1,6 +1,8 @@
 import os
 import codecs
 
+##This is read_card branch
+
 #Sena wrote this code with Zeynep
 
 ## Read_Card
