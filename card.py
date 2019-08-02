@@ -21,7 +21,7 @@ class Card:
 
         def get_id_number(self):
             #read the card and get the file name
-            file = read_card_into_file('myCardUltra')
+            file = self.read_card_into_file('myCardUltra')
 
             #read file
             f=open(file,"r")
@@ -49,7 +49,7 @@ class Card:
                 return 0
 
             #read the card and get the file name
-            file = read_card_into_file('myCardUltra')
+            file = self.read_card_into_file('myCardUltra')
 
             #convert input to hex
             hex_num=hex(id_number).lstrip('0x').rstrip('L')
@@ -84,7 +84,7 @@ class Card:
             #close new hex file
             n.close()
 
-            write_card("NewMycardUltra")
+            self.write_card("NewMycardUltra")
 
             return 1
 
