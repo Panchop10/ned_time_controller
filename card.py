@@ -44,8 +44,11 @@ class Card:
             if (len(id_num_hex1))%2 == 1:
                 id_num_hex1=id_num_hex1 + "0"
 
+            #test printing hex
+            print(codecs.decode(id_num_hex1, 'hex'))
+
             #decode hex into ascii
-            id_num = codecs.decode(id_num_hex1, 'hex').decode('ascii')
+            id_num = codecs.decode(id_num_hex1, 'hex').decode('decimal')
 
             #return id of the card
             return id_num
