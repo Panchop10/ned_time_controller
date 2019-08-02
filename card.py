@@ -8,6 +8,7 @@ class Card:
             self.id = self.get_id_number()
 
         def read_card_into_file(self, name):
+            print('read card into file')
             #read card and save file in mdf
             file_mdf = 'nfc-mfultralight r {}.mfd'.format(name)
             os.system(file_mdf)
@@ -20,6 +21,7 @@ class Card:
             return '{}.hex'.format(name)
 
         def get_id_number(self):
+            print('get id number')
             #read the card and get the file name
             file = self.read_card_into_file('myCardUltra')
 
@@ -43,7 +45,7 @@ class Card:
         def save_id_number(self, id_number):
             """Save id number in card, if there is any error it returns 0
             otherwise returns 1"""
-
+            print('save id number')
             #check id_number is between 0 and 9999
             if(id_number<0 or id_number>9999):
                 return 0
@@ -89,6 +91,7 @@ class Card:
             return 1
 
         def write_card(self, file_name):
+            print('write card')
             #convert hex file to mfd
             hex_to_card = 'xxd -r {}.hex {}.mfd'.format(file_name, file_name)
             os.system(id_num_hex_to_card)
