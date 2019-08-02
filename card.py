@@ -90,7 +90,7 @@ class Card:
                         line = line[9:14].replace(id_num_hex,hex_num,1)
 
                     #write the line into the new file
-                    new_file.writeline(line)
+                    new_file.write(line)
 
                     if 'str' in line:
                         break
