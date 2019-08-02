@@ -37,7 +37,7 @@ class Card:
             second=f.readline()
 
             #substring the second line, strip 0 and spaces
-            id_num_hex=second[9:18]
+            id_num_hex=second[9:14]
             id_num_hex1=id_num_hex.replace(' ', '').rstrip('0')
 
             #add 0 if lenght of the hex is odd
@@ -45,10 +45,10 @@ class Card:
                 id_num_hex1=id_num_hex1 + "0"
 
             #test printing hex
-            print(codecs.decode(id_num_hex1, 'hex'))
+            print(int(id_num_hex1, 16))
 
             #decode hex into ascii
-            id_num = codecs.decode(id_num_hex1, 'hex').decode('decimal')
+            #$id_num = codecs.decode(id_num_hex1, 'hex').decode('ascii')
 
             #return id of the card
             return id_num
