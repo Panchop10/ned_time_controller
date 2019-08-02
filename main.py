@@ -1,4 +1,4 @@
-import Card from 'card.py'
+from 'card.py' import Card
 
 if __name__ == '__main__':
     card = new Card()
