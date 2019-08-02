@@ -10,7 +10,7 @@ class Card:
         def read_card_into_file(self, name):
             #read card and save file in mdf
             file_mdf = 'nfc-mfultralight r {}.mfd'.format(name)
-            os.system(read_card)
+            os.system(file_mdf)
 
             #convert mdf file to hex
             card_to_hex = 'xxd {}.mfd > {}.hex'.format(name, name)
