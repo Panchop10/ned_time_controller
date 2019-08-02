@@ -3,6 +3,10 @@ import codecs
 
 ##This is read_card branch
 
+#This is write_card branch
+#This is the second comment of write_card
+
+
 #Sena wrote this code with Zeynep
 
 ## Read_Card
