@@ -75,7 +75,7 @@ class Card:
             name_new_file = str(uuid.uuid4())
 
             #create new hex file
-            new_file=open(".temp/{}".format(name_new_file) ,"w")
+            new_file=open(".temp/{}.hex".format(name_new_file) ,"w")
 
             #counter for old hex file
             counter = 0
