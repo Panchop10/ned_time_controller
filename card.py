@@ -69,7 +69,7 @@ class Card:
             with open(file, "r") as f:
                 for line in f:
                     #add 1 to counter to know which line of the file is the pointer
-                    counter++
+                    counter += 1
 
                     #change the id_number when we are in second line
                     if(counter == 2):
