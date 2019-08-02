@@ -70,6 +70,7 @@ class Card:
 
             hex_num+=" "
 
+            print("-{}-".format(hex_num))
 
             #Create a unique file name for new file
             name_new_file = str(uuid.uuid4())
