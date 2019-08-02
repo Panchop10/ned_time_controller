@@ -80,7 +80,7 @@ class Card:
             #counter for old hex file
             counter = 0
 
-            with open(file, "r") as f:
+            with open(".temp/{}".format(file), "r") as f:
                 for line in f:
                     #add 1 to counter to know which line of the file is the pointer
                     counter += 1
