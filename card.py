@@ -5,7 +5,7 @@ import codecs
 
 class Card:
         def __init__(self):
-            self.id = get_id_number()
+            self.id = self.get_id_number()
 
         def read_card_into_file(self, name):
             #read card and save file in mdf
