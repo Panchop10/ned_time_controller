@@ -106,8 +106,8 @@ class Card:
         def write_card(self, file_name):
             #convert hex file to mfd
             hex_to_card = 'xxd -r .temp/{}.hex .temp/{}.mfd'.format(file_name, file_name)
-            os.system(id_num_hex_to_card)
+            os.system(hex_to_card)
 
             #run command to write into the card
             #write_to_card = 'yes N | nfc-mfultralight w {}.mfd'.format(file_name)
-            #os.system(run_to_card)
+            #os.system(write_to_card)
