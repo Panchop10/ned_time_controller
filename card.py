@@ -32,7 +32,7 @@ class Card:
             file = self.read_card_into_file()
 
             #read file
-            f=open(file,"r")
+            f=open(".temp/{}".format(file),"r")
             first=f.readline()
             second=f.readline()
 
